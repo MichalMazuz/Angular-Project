@@ -1,0 +1,5 @@
+<div class="login-container">
+<p class="info-message" *ngIf="!_loginservice.getAuthGuard()">You are not registered in the system, would you like to register?</p>
+<div ><button *ngIf="!_loginservice.getAuthGuard()" (click)="register()"  class="btn btn-primary">register</button></div>
+<div ><button *ngIf="_loginservice.getAuthGuard()" (click)="logoutS()"   class="btn btn-primary">logout</button></div>
+</div>

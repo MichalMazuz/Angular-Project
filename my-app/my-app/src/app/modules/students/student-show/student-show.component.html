@@ -1,0 +1,19 @@
+<p>student-show works!</p>
+<div class="card" *ngIf="student?.status; else noStudent">
+  <div class="card-body">
+    <p>Last Name: {{ student?.lastN }}</p>
+    <p>First Name: {{ student?.firstN }}</p>
+    <p>Address: {{ student?.address }}</p>
+    <p>Phone: {{ student?.phone }}</p>
+    <p>IsActive: {{ student?.status }}</p>
+    <p>Avg: {{ student?.avg }}</p>
+    <p>Semester: {{ student?.semester }}</p>
+    <p>Academic Status: {{ student?.idSubject }}</p>
+  </div>
+</div>
+
+<ng-template #noStudent>
+  <div class="card-body">
+    <p>The date you left: {{ student?.dateL }}</p>
+  </div>
+</ng-template>

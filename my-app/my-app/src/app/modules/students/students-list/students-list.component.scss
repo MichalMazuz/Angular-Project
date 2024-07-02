@@ -1,0 +1,92 @@
+.student-list-component {
+    margin: 5vh auto;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.list-header {
+    font-size: 1.5rem;
+    color: #333;
+    text-align: center;
+    margin: 5vh 0 2vh;
+}
+
+.search-container {
+    margin-bottom: 1rem;
+
+    label {
+        margin-right: 0.5rem;
+    }
+}
+
+.form-check {
+    margin-left: 10vw;
+}
+
+.list-group-item {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    .row {
+        align-items: center;
+
+        p {
+            margin-bottom: 0;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            margin-top: 10px;
+
+            button {
+                flex: 1;
+                margin: 0 5px;
+                color: white;
+            }
+        }
+    }
+}
+
+.button-container {
+    margin-top: 1.5rem;
+
+    button {
+        margin-right: 0.5rem;
+        color: #fff;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+        color: #fff;
+    }
+
+    .btn-success {
+        background-color: #28a745;
+        border-color: #28a745;
+        color: #fff;
+    }
+}
+
+.btn-dark {
+    background-color: #343a40;
+    border-color: #343a40;
+    color: #fff;
+}
+
+.list-group {
+    width: 67vw;
+    margin-left: 8vw;
+}
+
+.container {
+    margin-top: 5vh;
+}

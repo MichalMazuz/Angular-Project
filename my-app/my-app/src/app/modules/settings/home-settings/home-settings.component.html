@@ -1,0 +1,33 @@
+<!-- <div class="container settings-container">
+    <div class="card">
+      <div class="card-header">
+        <span class="header-title">Settings Module</span>
+      </div>
+      <div class="card-body">
+        <div class="nav-links">
+          <a routerLink="/settings/favorites" class="nav-link">Favorite</a>
+          <a routerLink="/settings/profile" class="nav-link">Profile</a>
+          <a routerLink="/settings/account" class="nav-link">Account</a>
+        </div>
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div> -->
+
+
+
+  <div class="container mt-5">
+    <ul class="nav nav-tabs justify-content-center mb-4">
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/settings/account" routerLinkActive="active">Account</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link"  routerLink="/settings/favorites" routerLinkActive="active">Favorites</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/settings/profile"  routerLinkActive="active">Profile</a>
+        </li>
+    </ul>
+    <router-outlet></router-outlet>
+</div>
+

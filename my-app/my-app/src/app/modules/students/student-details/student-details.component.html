@@ -1,0 +1,111 @@
+<div class="card" *ngIf="student">
+  <div class="card-body">
+    <form [formGroup]="studentForm">
+      {{studentForm.value | json}}
+      <br>
+      {{student | json}}
+
+      <div class="mb-3">
+        <label for="exampleInputFname" class="form-label">Fname</label>
+        <input type="text" class="form-control" id="exampleInputFname" formControlName="firstN">
+        <div class="alert alert-danger" *ngIf="studentForm.controls['firstN'].invalid">
+          this field is required
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleInputLname" class="form-label">Lname</label>
+        <input type="text" class="form-control" id="exampleInputLname" formControlName="lastN">
+        <div class="alert alert-danger" *ngIf="studentForm.controls['lastN'].invalid">
+          this field is required
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleInputaddress" class="form-label">Address</label>
+        <input type="text" class="form-control" id="exampleInputaddress" formControlName="address">
+        <div class="alert alert-danger" *ngIf="studentForm.controls['address'].invalid">
+          this field is required
+        </div>
+      </div>
+
+
+      <div class="mb-3">
+        <label for="exampleInputphone" class="form-label">Phone</label>
+        <input type="text" class="form-control" id="exampleInputphone" formControlName="phone">
+        <ng-container *ngIf="studentForm.controls['phone'].errors && studentForm.controls['phone'].touched">
+          <div class="alert alert-danger" *ngIf="studentForm.controls['phone'].errors['required']">
+            This field is required
+          </div>
+          <div class="alert alert-danger" *ngIf="studentForm.controls['phone'].errors['minlength']">
+            This field is less than 7 digits
+          </div>
+        </ng-container>
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleInputavg" class="form-label">Avg</label>
+        <input type="text" class="form-control" id="exampleInputavg" formControlName="avg">
+        <ng-container *ngIf="studentForm.controls['avg'].errors">
+          <div class="alert alert-danger" *ngIf="studentForm.controls['avg'].errors['required']">
+            this field is required
+          </div>
+          <div class="alert alert-danger" *ngIf="studentForm.controls['avg'].errors['max']">
+            this field is high then 100
+          </div>
+        </ng-container>
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleInputaddress" class="form-label">Date</label>
+        <input type="text" class="form-control" id="exampleInputaddress" formControlName="dateL">
+        <div class="alert alert-danger" *ngIf="studentForm.controls['dateL'].invalid">
+          this field is required
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleInputsubject" class="form-label">Subject</label>
+        <select class="form-control" formControlName="idSubject">
+          <option *ngFor="let subject of subjectList" [value]="subject.idSubject">
+            {{subject.name}}
+          </option>
+        </select>
+        <div class="alert alert-danger" *ngIf="studentForm.controls['idSubject'].invalid">
+          this field is required
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleInputsemester" class="form-label">Semester</label>
+        <br>
+        <input type="radio" [value]="semesterTime.SemesterA" name="semester" formControlName="semester">SemesterA
+        <br>
+        <input type="radio" [value]="semesterTime.SemesterB" name="semester" formControlName="semester">SemesterB
+        <br>
+        <input type="radio" [value]="semesterTime.SemesterC" name="semester" formControlName="semester">SemesterC
+      </div>
+
+      <div [ngSwitch]="studentForm.controls['semester'].value">
+        <div *ngSwitchCase="'semesterTime.SemesterA'" style="color: blue;">This semester is for 150 days</div>
+        <div *ngSwitchCase="'semesterTime.SemesterB'" style="color: blueviolet;">This semester is for 160 days</div>
+        <div *ngSwitchCase="'semesterTime.SemesterC'" style="color: cadetblue;">This semester is for 190 days</div>
+      </div>
+
+      <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1" formControlName="status">
+        <label class="form-check-label" for="exampleCheck1">Status</label>
+      </div>
+
+      <button type="submit" class="btn btn-primary" (click)="saveNewStudent()" [disabled]="!studentForm.valid">
+        Save
+      </button>
+    </form>
+
+    <div class="mb-3">
+      <label for="exampleInputaddress" class="form-label">From date:</label>
+      <input type="date" class="form-control" id="exampleInputaddress" [(ngModel)]="missingFromDate">
+    </div>
+
+    <div class="mb-3">
+      <label for="exampleInputaddress" class="form-label">Miss day
